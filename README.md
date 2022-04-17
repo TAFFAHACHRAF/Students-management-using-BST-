@@ -1,4 +1,5 @@
 # Students-management-using-ABR-
-![image](parti1.JPG)
-![image](parti2.JPG)
-![image](parti3.JPG)
+  <img align="right" alt="JPG" src="partie1.JPG" width="500" height="320" />
+  <img align="right" alt="JPG" src="partie2.JPG" width="500" height="320" />
+  <img align="right" alt="JPG" src="partie3.JPG" width="500" height="320" />
+
