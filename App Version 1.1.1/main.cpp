@@ -1,3 +1,4 @@
+// AChraf TAFFAH GLSID-1
 #include"BST.hpp"
 int main(){
 	float t[8]={18,7,19,17,15,16,0,20};
@@ -14,9 +15,9 @@ int main(){
 	b->add(e4);
 	
 	b->print();
-	std::cout<<"__________________\n";
-	b->getMin()->data->print();	
-	std::cout<<"__________________\n";
 	b->getMax()->data->print();	
+	b->getMin()->data->print();	
+	b->emptyTree();
+	b->getTreeNode(0)->data->print();
 	return 0;
 }
