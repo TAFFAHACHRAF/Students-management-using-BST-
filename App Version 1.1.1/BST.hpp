@@ -1,3 +1,4 @@
+//Achraf TAFFAH : GLSID-1
 #ifndef _ETUDIANTS_
 	#define _ETUDIANTS_
 	#include<stdlib.h>
@@ -6,6 +7,7 @@
 	#include<stdlib.h>
 	#include<assert.h>
 	#include<iostream>
+	
 	class Etudiants{
 			private:
 				int mtr;
@@ -20,8 +22,9 @@
 				std::string getNom();
 				int getMtr();
 				float getNote(int);
-				void setNote(float,int);
 				float getMoy();
+				void setNote(float,int);
+				void setNom(std::string nom);
 				int Comparer(Etudiants e);
 				void print();
 	};
@@ -42,6 +45,10 @@
 				data = e;
 				left = right = 0;
 			}
+			
+			TreeNode(TreeNode *tr){
+				this->data=tr->data;
+			}
 		
 			virtual ~TreeNode(){
 				left = nullptr;
@@ -58,25 +65,27 @@
 			}
 			virtual ~BST();
 			void emptyTree();
-			int getSize() {return size;}
-			bool isEmpty() {return (size == 0);}
-			bool contains(BST d);
-			TreeNode* fetch(BST d);
+			int getSize() {
+				return size;
+			}
+			bool isEmpty() {
+				return (size == 0);
+			}
 			void print();
-			void printSub();
-			void printDisplay();
 			void add(Etudiants *e);
 			bool deleteNode(BST d);
 			TreeNode* getMin();
 			TreeNode* getMax();
-//			BST getMin();
-//			BST getMax();
+			TreeNode* getTreeNode(int m);
+			void SearchByMtr(int m);
+			void SearchByMoy(int m);
 			TreeNode* root;
 			private:
 				int size;
 				void destructorHelper(TreeNode* n);
 				void addHelper(TreeNode *d, TreeNode*& p);
 				void printHelper(TreeNode* n);
+				void getHelper(TreeNode*& curr, int);
 				TreeNode* getSuccessor(TreeNode* d);
 	};
 	
@@ -121,6 +130,9 @@
 		assert(i>=0 && i<8);
 		notes[i]=valeure;
 	}
+	void Etudiants::setNom(std::string nom){
+		this->nom=nom;
+	}
 	void Etudiants::print(){
 		std::cout << "Matricule : " << mtr << std::endl;
 		std::cout << "Nom : " << nom << std::endl;
@@ -162,6 +174,14 @@
 		size = 0;
 		root = NULL;
 	}
+	
+	//emptys the tree
+	void BST:: emptyTree(){
+		destructorHelper(root);
+		size = 0;
+		root = NULL;
+	}
+	
 	//helper function for destructor to destroy the tree
 	void BST:: destructorHelper(TreeNode* n){
 	   // Delete node and it's children
@@ -171,12 +191,7 @@
 	      delete n;
 	   }
 	}
-	//emptys the tree
-	void BST:: emptyTree(){
-		destructorHelper(root);
-		size = 0;
-		root = NULL;
-	}
+	
 	//prints content of the tree
 	void BST:: print(){
 		printHelper(root);
@@ -232,5 +247,21 @@
 			curr = curr -> right;
 		}
 		return curr;
+	}
+	
+	TreeNode* BST::getTreeNode(int m){
+		TreeNode *curr=new TreeNode();
+		curr=root;
+		getHelper(curr,m);
+		return curr;
+	}
+	
+	void BST:: getHelper(TreeNode*& curr, int m){
+		if(m<curr->data->getMtr()){
+			getHelper(curr->left,m);
+		}
+		else if(m>curr->data->getMtr()){
+			getHelper(curr->right,m);
+		}
 	}
 	#endif
