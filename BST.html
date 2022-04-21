@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>BST.html</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta name="generator" content="SynEdit HTML exporter" />
+<style type="text/css">
+<!--
+body { color: #000000; background-color: #FFFFFF; }
+.cpp1-assembler { color: #0000FF; }
+.cpp1-character { color: #000000; }
+.cpp1-comment { color: #0078D7; font-style: italic; }
+.cpp1-float { color: #800080; }
+.cpp1-hexadecimal { color: #800080; }
+.cpp1-identifier { color: #000000; }
+.cpp1-illegalchar { color: #000000; }
+.cpp1-number { color: #800080; }
+.cpp1-octal { color: #800080; }
+.cpp1-preprocessor { color: #008000; }
+.cpp1-reservedword { color: #000000; font-weight: bold; }
+.cpp1-space { background-color: #FFFFFF; color: #000000; }
+.cpp1-string { color: #0000FF; font-weight: bold; }
+.cpp1-symbol { color: #FF0000; font-weight: bold; }
+-->
+</style>
+</head>
+<body>
+<pre>
+<code><span style="font: 13pt Consolas;"><span class="cpp1-comment">//Achraf TAFFAH : GLSID-1
+</span><span class="cpp1-preprocessor">#ifndef _ETUDIANTS_
+</span><span class="cpp1-space">	</span><span class="cpp1-preprocessor">#define _ETUDIANTS_
+</span><span class="cpp1-space">	</span><span class="cpp1-preprocessor">#include&lt;stdlib.h&gt;
+</span><span class="cpp1-space">	</span><span class="cpp1-preprocessor">#include&lt;iostream&gt;
+</span><span class="cpp1-space">	</span><span class="cpp1-preprocessor">#include&lt;conio.h&gt;
+</span><span class="cpp1-space">	</span><span class="cpp1-preprocessor">#include&lt;stdlib.h&gt;
+</span><span class="cpp1-space">	</span><span class="cpp1-preprocessor">#include&lt;assert.h&gt;
+</span><span class="cpp1-space">	</span><span class="cpp1-preprocessor">#include&lt;iostream&gt;
+</span><span class="cpp1-space">	
+	</span><span class="cpp1-reservedword">class</span><span class="cpp1-space"> Students</span><span class="cpp1-symbol">{
+</span><span class="cpp1-space">			</span><span class="cpp1-reservedword">private</span><span class="cpp1-symbol">:
+</span><span class="cpp1-space">				</span><span class="cpp1-reservedword">int</span><span class="cpp1-space"> mtr</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">				std</span><span class="cpp1-symbol">::</span><span class="cpp1-identifier">string Name</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">				</span><span class="cpp1-reservedword">float</span><span class="cpp1-space"> notes</span><span class="cpp1-symbol">[</span><span class="cpp1-number">8</span><span class="cpp1-symbol">];
+</span><span class="cpp1-space">			</span><span class="cpp1-reservedword">public</span><span class="cpp1-symbol">:
+</span><span class="cpp1-space">				</span><span class="cpp1-reservedword">static</span><span class="cpp1-space"> </span><span class="cpp1-reservedword">int</span><span class="cpp1-space"> mtrCourant</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">				Students</span><span class="cpp1-symbol">();
+</span><span class="cpp1-space">				Students</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">std</span><span class="cpp1-symbol">::</span><span class="cpp1-identifier">string</span><span class="cpp1-symbol">,</span><span class="cpp1-reservedword">float</span><span class="cpp1-symbol">[]);
+</span><span class="cpp1-space">				Students</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">Students </span><span class="cpp1-symbol">&amp;);
+</span><span class="cpp1-space">				</span><span class="cpp1-symbol">~</span><span class="cpp1-identifier">Students</span><span class="cpp1-symbol">();
+</span><span class="cpp1-space">				std</span><span class="cpp1-symbol">::</span><span class="cpp1-identifier">string getName</span><span class="cpp1-symbol">();
+</span><span class="cpp1-space">				</span><span class="cpp1-reservedword">int</span><span class="cpp1-space"> getMtr</span><span class="cpp1-symbol">();
+</span><span class="cpp1-space">				</span><span class="cpp1-reservedword">float</span><span class="cpp1-space"> getNote</span><span class="cpp1-symbol">(</span><span class="cpp1-reservedword">int</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">				</span><span class="cpp1-reservedword">float</span><span class="cpp1-space"> getAverage</span><span class="cpp1-symbol">();
+</span><span class="cpp1-space">				</span><span class="cpp1-reservedword">void</span><span class="cpp1-space"> setNote</span><span class="cpp1-symbol">(</span><span class="cpp1-reservedword">float</span><span class="cpp1-symbol">,</span><span class="cpp1-reservedword">int</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">				</span><span class="cpp1-reservedword">void</span><span class="cpp1-space"> setName</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">std</span><span class="cpp1-symbol">::</span><span class="cpp1-identifier">string Name</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">				</span><span class="cpp1-reservedword">int</span><span class="cpp1-space"> Compare</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">Students e</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">				</span><span class="cpp1-reservedword">void</span><span class="cpp1-space"> print</span><span class="cpp1-symbol">();
+</span><span class="cpp1-space">	</span><span class="cpp1-symbol">};
+</span><span class="cpp1-space">	
+	</span><span class="cpp1-reservedword">class</span><span class="cpp1-space"> TreeNode</span><span class="cpp1-symbol">{
+</span><span class="cpp1-space">		</span><span class="cpp1-reservedword">public</span><span class="cpp1-symbol">:
+</span><span class="cpp1-space">			TreeNode</span><span class="cpp1-symbol">*</span><span class="cpp1-space"> left</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">			TreeNode</span><span class="cpp1-symbol">*</span><span class="cpp1-space"> right</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">			Students</span><span class="cpp1-symbol">*</span><span class="cpp1-space"> data</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">			
+			TreeNode</span><span class="cpp1-symbol">(){
+</span><span class="cpp1-space">				Students </span><span class="cpp1-symbol">*</span><span class="cpp1-identifier">e</span><span class="cpp1-symbol">=</span><span class="cpp1-reservedword">new</span><span class="cpp1-space"> Students</span><span class="cpp1-symbol">();
+</span><span class="cpp1-space">				data </span><span class="cpp1-symbol">=</span><span class="cpp1-space"> e</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">				left </span><span class="cpp1-symbol">=</span><span class="cpp1-space"> right </span><span class="cpp1-symbol">=</span><span class="cpp1-space"> </span><span class="cpp1-number">0</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">			</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">			
+			TreeNode</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">Students </span><span class="cpp1-symbol">*</span><span class="cpp1-identifier">e</span><span class="cpp1-symbol">){
+</span><span class="cpp1-space">				data </span><span class="cpp1-symbol">=</span><span class="cpp1-space"> e</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">				left </span><span class="cpp1-symbol">=</span><span class="cpp1-space"> right </span><span class="cpp1-symbol">=</span><span class="cpp1-space"> </span><span class="cpp1-number">0</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">			</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">			
+			TreeNode</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">TreeNode </span><span class="cpp1-symbol">*</span><span class="cpp1-identifier">tr</span><span class="cpp1-symbol">){
+</span><span class="cpp1-space">				</span><span class="cpp1-reservedword">this</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">data</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">tr</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">data</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">			</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">		
+			</span><span class="cpp1-reservedword">virtual</span><span class="cpp1-space"> </span><span class="cpp1-symbol">~</span><span class="cpp1-identifier">TreeNode</span><span class="cpp1-symbol">(){
+</span><span class="cpp1-space">				left </span><span class="cpp1-symbol">=</span><span class="cpp1-space"> </span><span class="cpp1-reservedword">nullptr</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">				right </span><span class="cpp1-symbol">=</span><span class="cpp1-space"> </span><span class="cpp1-reservedword">nullptr</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">				data </span><span class="cpp1-symbol">=</span><span class="cpp1-space"> </span><span class="cpp1-reservedword">nullptr</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">			</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">	</span><span class="cpp1-symbol">};
+</span><span class="cpp1-space">	
+	</span><span class="cpp1-reservedword">class</span><span class="cpp1-space"> BST</span><span class="cpp1-symbol">{
+</span><span class="cpp1-space">		</span><span class="cpp1-reservedword">public</span><span class="cpp1-symbol">:
+</span><span class="cpp1-space">			BST</span><span class="cpp1-symbol">(){
+</span><span class="cpp1-space">				size </span><span class="cpp1-symbol">=</span><span class="cpp1-space"> </span><span class="cpp1-number">0</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">				root </span><span class="cpp1-symbol">=</span><span class="cpp1-space"> </span><span class="cpp1-reservedword">nullptr</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">			</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">			</span><span class="cpp1-reservedword">virtual</span><span class="cpp1-space"> </span><span class="cpp1-symbol">~</span><span class="cpp1-identifier">BST</span><span class="cpp1-symbol">();
+</span><span class="cpp1-space">			</span><span class="cpp1-reservedword">void</span><span class="cpp1-space"> emptyTree</span><span class="cpp1-symbol">();
+</span><span class="cpp1-space">			</span><span class="cpp1-reservedword">int</span><span class="cpp1-space"> getSize</span><span class="cpp1-symbol">()</span><span class="cpp1-space"> </span><span class="cpp1-symbol">{
+</span><span class="cpp1-space">				</span><span class="cpp1-reservedword">return</span><span class="cpp1-space"> size</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">			</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">			</span><span class="cpp1-reservedword">bool</span><span class="cpp1-space"> isEmpty</span><span class="cpp1-symbol">()</span><span class="cpp1-space"> </span><span class="cpp1-symbol">{
+</span><span class="cpp1-space">				</span><span class="cpp1-reservedword">return</span><span class="cpp1-space"> </span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">size </span><span class="cpp1-symbol">==</span><span class="cpp1-space"> </span><span class="cpp1-number">0</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">			</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">			</span><span class="cpp1-reservedword">void</span><span class="cpp1-space"> print</span><span class="cpp1-symbol">();
+</span><span class="cpp1-space">			</span><span class="cpp1-reservedword">void</span><span class="cpp1-space"> add</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">Students </span><span class="cpp1-symbol">*</span><span class="cpp1-identifier">e</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">			</span><span class="cpp1-reservedword">void</span><span class="cpp1-space"> deleteNode</span><span class="cpp1-symbol">(</span><span class="cpp1-reservedword">int</span><span class="cpp1-space"> mtr</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">			TreeNode</span><span class="cpp1-symbol">*</span><span class="cpp1-space"> getMin</span><span class="cpp1-symbol">();
+</span><span class="cpp1-space">			TreeNode</span><span class="cpp1-symbol">*</span><span class="cpp1-space"> getMax</span><span class="cpp1-symbol">();
+</span><span class="cpp1-space">			TreeNode</span><span class="cpp1-symbol">*</span><span class="cpp1-space"> getTreeNode</span><span class="cpp1-symbol">(</span><span class="cpp1-reservedword">int</span><span class="cpp1-space"> m</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">			</span><span class="cpp1-reservedword">void</span><span class="cpp1-space"> SearchByMtr</span><span class="cpp1-symbol">(</span><span class="cpp1-reservedword">int</span><span class="cpp1-space"> m</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">			</span><span class="cpp1-reservedword">void</span><span class="cpp1-space"> SearchByMoy</span><span class="cpp1-symbol">(</span><span class="cpp1-reservedword">int</span><span class="cpp1-space"> m</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">			TreeNode</span><span class="cpp1-symbol">*</span><span class="cpp1-space"> root</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">			</span><span class="cpp1-reservedword">private</span><span class="cpp1-symbol">:
+</span><span class="cpp1-space">				</span><span class="cpp1-reservedword">int</span><span class="cpp1-space"> size</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">				</span><span class="cpp1-reservedword">void</span><span class="cpp1-space"> destructorHelper</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">TreeNode</span><span class="cpp1-symbol">*</span><span class="cpp1-space"> n</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">				</span><span class="cpp1-reservedword">void</span><span class="cpp1-space"> addHelper</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">TreeNode </span><span class="cpp1-symbol">*</span><span class="cpp1-identifier">d</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> TreeNode</span><span class="cpp1-symbol">*&amp;</span><span class="cpp1-space"> p</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">				</span><span class="cpp1-reservedword">void</span><span class="cpp1-space"> printHelper</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">TreeNode</span><span class="cpp1-symbol">*</span><span class="cpp1-space"> n</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">				</span><span class="cpp1-reservedword">void</span><span class="cpp1-space"> getHelper</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">TreeNode</span><span class="cpp1-symbol">*&amp;</span><span class="cpp1-space"> curr</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> </span><span class="cpp1-reservedword">int</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">				TreeNode</span><span class="cpp1-symbol">*</span><span class="cpp1-space"> getSuccessor</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">TreeNode</span><span class="cpp1-symbol">*</span><span class="cpp1-space"> d</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">	</span><span class="cpp1-symbol">};
+</span><span class="cpp1-space">	
+	</span><span class="cpp1-comment">//&lt;!------Classe Students --------&gt;
+
+</span><span class="cpp1-space">	</span><span class="cpp1-reservedword">int</span><span class="cpp1-space"> Students</span><span class="cpp1-symbol">::</span><span class="cpp1-identifier">mtrCourant</span><span class="cpp1-symbol">=</span><span class="cpp1-number">0</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">	
+	std</span><span class="cpp1-symbol">::</span><span class="cpp1-identifier">string Students</span><span class="cpp1-symbol">::</span><span class="cpp1-identifier">getName</span><span class="cpp1-symbol">(){
+</span><span class="cpp1-space">		</span><span class="cpp1-reservedword">return</span><span class="cpp1-space"> Name</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">	</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">	</span><span class="cpp1-reservedword">int</span><span class="cpp1-space"> Students</span><span class="cpp1-symbol">::</span><span class="cpp1-identifier">getMtr</span><span class="cpp1-symbol">(){
+</span><span class="cpp1-space">		</span><span class="cpp1-reservedword">return</span><span class="cpp1-space"> mtr</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">	</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">	</span><span class="cpp1-reservedword">float</span><span class="cpp1-space"> Students</span><span class="cpp1-symbol">::</span><span class="cpp1-identifier">getNote</span><span class="cpp1-symbol">(</span><span class="cpp1-reservedword">int</span><span class="cpp1-space"> i</span><span class="cpp1-symbol">){
+</span><span class="cpp1-space">		assert</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">i</span><span class="cpp1-symbol">&gt;=</span><span class="cpp1-number">0</span><span class="cpp1-space"> </span><span class="cpp1-symbol">&amp;&amp;</span><span class="cpp1-space"> i</span><span class="cpp1-symbol">&lt;</span><span class="cpp1-number">8</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">		</span><span class="cpp1-reservedword">return</span><span class="cpp1-space"> notes</span><span class="cpp1-symbol">[</span><span class="cpp1-identifier">i</span><span class="cpp1-symbol">];
+</span><span class="cpp1-space">	</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">	</span><span class="cpp1-reservedword">float</span><span class="cpp1-space"> Students</span><span class="cpp1-symbol">::</span><span class="cpp1-identifier">getAverage</span><span class="cpp1-symbol">(){
+</span><span class="cpp1-space">		</span><span class="cpp1-reservedword">float</span><span class="cpp1-space"> sum</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">		</span><span class="cpp1-reservedword">for</span><span class="cpp1-symbol">(</span><span class="cpp1-reservedword">int</span><span class="cpp1-space"> k</span><span class="cpp1-symbol">=</span><span class="cpp1-number">0</span><span class="cpp1-symbol">;</span><span class="cpp1-identifier">k</span><span class="cpp1-symbol">&lt;</span><span class="cpp1-number">8</span><span class="cpp1-symbol">;</span><span class="cpp1-identifier">k</span><span class="cpp1-symbol">++)
+</span><span class="cpp1-space">			sum</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">sum</span><span class="cpp1-symbol">+</span><span class="cpp1-identifier">notes</span><span class="cpp1-symbol">[</span><span class="cpp1-identifier">k</span><span class="cpp1-symbol">];
+</span><span class="cpp1-space">		</span><span class="cpp1-reservedword">return</span><span class="cpp1-space"> </span><span class="cpp1-symbol">(</span><span class="cpp1-reservedword">float</span><span class="cpp1-symbol">)(</span><span class="cpp1-identifier">sum</span><span class="cpp1-symbol">/</span><span class="cpp1-number">8</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">	</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">	</span><span class="cpp1-reservedword">int</span><span class="cpp1-space"> Students</span><span class="cpp1-symbol">::</span><span class="cpp1-identifier">Compare</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">Students e</span><span class="cpp1-symbol">){
+</span><span class="cpp1-space">		</span><span class="cpp1-reservedword">return</span><span class="cpp1-space"> </span><span class="cpp1-number">0</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">		</span><span class="cpp1-reservedword">if</span><span class="cpp1-symbol">(</span><span class="cpp1-reservedword">this</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">getName</span><span class="cpp1-symbol">()==</span><span class="cpp1-identifier">e</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">getName</span><span class="cpp1-symbol">()){
+</span><span class="cpp1-space">			</span><span class="cpp1-reservedword">if</span><span class="cpp1-symbol">(</span><span class="cpp1-reservedword">this</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">getMtr</span><span class="cpp1-symbol">()==</span><span class="cpp1-identifier">e</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">getMtr</span><span class="cpp1-symbol">()){
+</span><span class="cpp1-space">				</span><span class="cpp1-reservedword">if</span><span class="cpp1-symbol">(</span><span class="cpp1-reservedword">this</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">getAverage</span><span class="cpp1-symbol">()==</span><span class="cpp1-identifier">e</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">getAverage</span><span class="cpp1-symbol">()){
+</span><span class="cpp1-space">					</span><span class="cpp1-reservedword">int</span><span class="cpp1-space"> i</span><span class="cpp1-symbol">=</span><span class="cpp1-number">0</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">					</span><span class="cpp1-reservedword">for</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">i</span><span class="cpp1-symbol">;</span><span class="cpp1-identifier">i</span><span class="cpp1-symbol">&lt;</span><span class="cpp1-number">8</span><span class="cpp1-symbol">;</span><span class="cpp1-identifier">i</span><span class="cpp1-symbol">++){
+</span><span class="cpp1-space">						</span><span class="cpp1-reservedword">if</span><span class="cpp1-symbol">(</span><span class="cpp1-reservedword">this</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">getNote</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">i</span><span class="cpp1-symbol">)!=</span><span class="cpp1-identifier">e</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">getNote</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">i</span><span class="cpp1-symbol">)){
+</span><span class="cpp1-space">							</span><span class="cpp1-reservedword">return</span><span class="cpp1-space"> </span><span class="cpp1-number">0</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">						</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">					</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">					</span><span class="cpp1-reservedword">return</span><span class="cpp1-space"> </span><span class="cpp1-number">1</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">				</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">			</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">		</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">		</span><span class="cpp1-reservedword">return</span><span class="cpp1-space"> </span><span class="cpp1-number">0</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">	</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">	</span><span class="cpp1-reservedword">void</span><span class="cpp1-space"> Students</span><span class="cpp1-symbol">::</span><span class="cpp1-identifier">setNote</span><span class="cpp1-symbol">(</span><span class="cpp1-reservedword">float</span><span class="cpp1-space"> valeure</span><span class="cpp1-symbol">,</span><span class="cpp1-reservedword">int</span><span class="cpp1-space"> i</span><span class="cpp1-symbol">){
+</span><span class="cpp1-space">		assert</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">i</span><span class="cpp1-symbol">&gt;=</span><span class="cpp1-number">0</span><span class="cpp1-space"> </span><span class="cpp1-symbol">&amp;&amp;</span><span class="cpp1-space"> i</span><span class="cpp1-symbol">&lt;</span><span class="cpp1-number">8</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">		notes</span><span class="cpp1-symbol">[</span><span class="cpp1-identifier">i</span><span class="cpp1-symbol">]=</span><span class="cpp1-identifier">valeure</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">	</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">	</span><span class="cpp1-reservedword">void</span><span class="cpp1-space"> Students</span><span class="cpp1-symbol">::</span><span class="cpp1-identifier">setName</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">std</span><span class="cpp1-symbol">::</span><span class="cpp1-identifier">string Name</span><span class="cpp1-symbol">){
+</span><span class="cpp1-space">		</span><span class="cpp1-reservedword">this</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">Name</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">Name</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">	</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">	</span><span class="cpp1-reservedword">void</span><span class="cpp1-space"> Students</span><span class="cpp1-symbol">::</span><span class="cpp1-identifier">print</span><span class="cpp1-symbol">(){
+</span><span class="cpp1-space">		std</span><span class="cpp1-symbol">::</span><span class="cpp1-identifier">cout </span><span class="cpp1-symbol">&lt;&lt;</span><span class="cpp1-space"> </span><span class="cpp1-string">&quot;Matricule : &quot;</span><span class="cpp1-space"> </span><span class="cpp1-symbol">&lt;&lt;</span><span class="cpp1-space"> mtr </span><span class="cpp1-symbol">&lt;&lt;</span><span class="cpp1-space"> std</span><span class="cpp1-symbol">::</span><span class="cpp1-identifier">endl</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">		std</span><span class="cpp1-symbol">::</span><span class="cpp1-identifier">cout </span><span class="cpp1-symbol">&lt;&lt;</span><span class="cpp1-space"> </span><span class="cpp1-string">&quot;Name : &quot;</span><span class="cpp1-space"> </span><span class="cpp1-symbol">&lt;&lt;</span><span class="cpp1-space"> Name </span><span class="cpp1-symbol">&lt;&lt;</span><span class="cpp1-space"> std</span><span class="cpp1-symbol">::</span><span class="cpp1-identifier">endl</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">		</span><span class="cpp1-reservedword">for</span><span class="cpp1-symbol">(</span><span class="cpp1-reservedword">int</span><span class="cpp1-space"> i</span><span class="cpp1-symbol">=</span><span class="cpp1-number">0</span><span class="cpp1-symbol">;</span><span class="cpp1-identifier">i</span><span class="cpp1-symbol">&lt;</span><span class="cpp1-number">8</span><span class="cpp1-symbol">;</span><span class="cpp1-identifier">i</span><span class="cpp1-symbol">++){
+</span><span class="cpp1-space">			std</span><span class="cpp1-symbol">::</span><span class="cpp1-identifier">cout </span><span class="cpp1-symbol">&lt;&lt;</span><span class="cpp1-space"> </span><span class="cpp1-string">&quot;Note[&quot;</span><span class="cpp1-space"> </span><span class="cpp1-symbol">&lt;&lt;</span><span class="cpp1-space"> i </span><span class="cpp1-symbol">&lt;&lt;</span><span class="cpp1-space"> </span><span class="cpp1-string">&quot;] :&quot;</span><span class="cpp1-space"> </span><span class="cpp1-symbol">&lt;&lt;</span><span class="cpp1-space"> notes</span><span class="cpp1-symbol">[</span><span class="cpp1-identifier">i</span><span class="cpp1-symbol">]</span><span class="cpp1-space"> </span><span class="cpp1-symbol">&lt;&lt;</span><span class="cpp1-space"> std</span><span class="cpp1-symbol">::</span><span class="cpp1-identifier">endl</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">		</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">		std</span><span class="cpp1-symbol">::</span><span class="cpp1-identifier">cout </span><span class="cpp1-symbol">&lt;&lt;</span><span class="cpp1-space"> </span><span class="cpp1-string">&quot;The Average : &quot;</span><span class="cpp1-space"> </span><span class="cpp1-symbol">&lt;&lt;</span><span class="cpp1-space"> getAverage</span><span class="cpp1-symbol">();
+</span><span class="cpp1-space">		std</span><span class="cpp1-symbol">::</span><span class="cpp1-identifier">cout </span><span class="cpp1-symbol">&lt;&lt;</span><span class="cpp1-space"> std</span><span class="cpp1-symbol">::</span><span class="cpp1-identifier">endl</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">	</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">	Students</span><span class="cpp1-symbol">::</span><span class="cpp1-identifier">Students</span><span class="cpp1-symbol">(){
+</span><span class="cpp1-space">		mtrCourant</span><span class="cpp1-symbol">++;
+</span><span class="cpp1-space">		mtr</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">mtrCourant</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">		Name</span><span class="cpp1-symbol">=</span><span class="cpp1-string">&quot; &quot;</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">		</span><span class="cpp1-reservedword">for</span><span class="cpp1-symbol">(</span><span class="cpp1-reservedword">int</span><span class="cpp1-space"> i</span><span class="cpp1-symbol">=</span><span class="cpp1-number">0</span><span class="cpp1-symbol">;</span><span class="cpp1-identifier">i</span><span class="cpp1-symbol">&lt;</span><span class="cpp1-number">8</span><span class="cpp1-symbol">;</span><span class="cpp1-identifier">i</span><span class="cpp1-symbol">++)
+</span><span class="cpp1-space">			notes</span><span class="cpp1-symbol">[</span><span class="cpp1-identifier">i</span><span class="cpp1-symbol">]=</span><span class="cpp1-number">0</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">	</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">	Students</span><span class="cpp1-symbol">::</span><span class="cpp1-identifier">Students</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">std</span><span class="cpp1-symbol">::</span><span class="cpp1-identifier">string Name</span><span class="cpp1-symbol">,</span><span class="cpp1-reservedword">float</span><span class="cpp1-space"> notes</span><span class="cpp1-symbol">[]){
+</span><span class="cpp1-space">		mtrCourant</span><span class="cpp1-symbol">++;
+</span><span class="cpp1-space">		mtr</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">mtrCourant</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">		</span><span class="cpp1-reservedword">this</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">Name</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">Name</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">		</span><span class="cpp1-reservedword">for</span><span class="cpp1-symbol">(</span><span class="cpp1-reservedword">int</span><span class="cpp1-space"> i</span><span class="cpp1-symbol">=</span><span class="cpp1-number">0</span><span class="cpp1-symbol">;</span><span class="cpp1-identifier">i</span><span class="cpp1-symbol">&lt;</span><span class="cpp1-number">8</span><span class="cpp1-symbol">;</span><span class="cpp1-identifier">i</span><span class="cpp1-symbol">++)
+</span><span class="cpp1-space">			</span><span class="cpp1-reservedword">this</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">notes</span><span class="cpp1-symbol">[</span><span class="cpp1-identifier">i</span><span class="cpp1-symbol">]=</span><span class="cpp1-identifier">notes</span><span class="cpp1-symbol">[</span><span class="cpp1-identifier">i</span><span class="cpp1-symbol">];
+</span><span class="cpp1-space">	</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">	Students</span><span class="cpp1-symbol">::</span><span class="cpp1-identifier">Students</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">Students </span><span class="cpp1-symbol">&amp;</span><span class="cpp1-identifier">e</span><span class="cpp1-symbol">){
+</span><span class="cpp1-space">		mtrCourant</span><span class="cpp1-symbol">++;
+</span><span class="cpp1-space">		mtr</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">mtrCourant</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">		</span><span class="cpp1-reservedword">this</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">Name</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">e</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">Name</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">		</span><span class="cpp1-reservedword">for</span><span class="cpp1-symbol">(</span><span class="cpp1-reservedword">int</span><span class="cpp1-space"> i</span><span class="cpp1-symbol">=</span><span class="cpp1-number">0</span><span class="cpp1-symbol">;</span><span class="cpp1-identifier">i</span><span class="cpp1-symbol">&lt;</span><span class="cpp1-number">8</span><span class="cpp1-symbol">;</span><span class="cpp1-identifier">i</span><span class="cpp1-symbol">++)
+</span><span class="cpp1-space">			notes</span><span class="cpp1-symbol">[</span><span class="cpp1-identifier">i</span><span class="cpp1-symbol">]=</span><span class="cpp1-identifier">e</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">notes</span><span class="cpp1-symbol">[</span><span class="cpp1-identifier">i</span><span class="cpp1-symbol">];
+</span><span class="cpp1-space">	</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">	Students</span><span class="cpp1-symbol">::~</span><span class="cpp1-identifier">Students</span><span class="cpp1-symbol">(){
+</span><span class="cpp1-space">		std</span><span class="cpp1-symbol">::</span><span class="cpp1-identifier">cout </span><span class="cpp1-symbol">&lt;&lt;</span><span class="cpp1-space"> </span><span class="cpp1-string">&quot;\n\t...Destruction...\n&quot;</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">	</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">	
+  	</span><span class="cpp1-comment">//&lt;!------Classe BST --------&gt;
+</span><span class="cpp1-space">  	</span><span class="cpp1-comment">//destructor
+</span><span class="cpp1-space">	BST</span><span class="cpp1-symbol">::</span><span class="cpp1-space"> </span><span class="cpp1-symbol">~</span><span class="cpp1-identifier">BST</span><span class="cpp1-symbol">(){
+</span><span class="cpp1-space">		destructorHelper</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">root</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">		size </span><span class="cpp1-symbol">=</span><span class="cpp1-space"> </span><span class="cpp1-number">0</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">		root </span><span class="cpp1-symbol">=</span><span class="cpp1-space"> NULL</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">	</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">	
+	</span><span class="cpp1-comment">//emptys the tree
+</span><span class="cpp1-space">	</span><span class="cpp1-reservedword">void</span><span class="cpp1-space"> BST</span><span class="cpp1-symbol">::</span><span class="cpp1-space"> emptyTree</span><span class="cpp1-symbol">(){
+</span><span class="cpp1-space">		destructorHelper</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">root</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">		size </span><span class="cpp1-symbol">=</span><span class="cpp1-space"> </span><span class="cpp1-number">0</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">		root </span><span class="cpp1-symbol">=</span><span class="cpp1-space"> NULL</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">	</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">	
+	</span><span class="cpp1-comment">//helper function for destructor to destroy the tree
+</span><span class="cpp1-space">	</span><span class="cpp1-reservedword">void</span><span class="cpp1-space"> BST</span><span class="cpp1-symbol">::</span><span class="cpp1-space"> destructorHelper</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">TreeNode</span><span class="cpp1-symbol">*</span><span class="cpp1-space"> n</span><span class="cpp1-symbol">){
+</span><span class="cpp1-space">	   </span><span class="cpp1-comment">// Delete node and it's children
+</span><span class="cpp1-space">	   </span><span class="cpp1-reservedword">if</span><span class="cpp1-space"> </span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">n </span><span class="cpp1-symbol">!=</span><span class="cpp1-space"> NULL</span><span class="cpp1-symbol">){
+</span><span class="cpp1-space">	      destructorHelper</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">n</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">left</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">	      destructorHelper</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">n</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">right</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">	      </span><span class="cpp1-reservedword">delete</span><span class="cpp1-space"> n</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">	   </span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">	</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">	
+	</span><span class="cpp1-comment">//prints content of the tree
+</span><span class="cpp1-space">	</span><span class="cpp1-reservedword">void</span><span class="cpp1-space"> BST</span><span class="cpp1-symbol">::</span><span class="cpp1-space"> print</span><span class="cpp1-symbol">(){
+</span><span class="cpp1-space">		printHelper</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">root</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">	</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">	
+	</span><span class="cpp1-comment">//helper function for printing the tree
+</span><span class="cpp1-space">	</span><span class="cpp1-reservedword">void</span><span class="cpp1-space"> BST</span><span class="cpp1-symbol">::</span><span class="cpp1-space"> printHelper</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">TreeNode</span><span class="cpp1-symbol">*</span><span class="cpp1-space"> n</span><span class="cpp1-symbol">){
+</span><span class="cpp1-space">		</span><span class="cpp1-comment">//null check
+</span><span class="cpp1-space">		</span><span class="cpp1-reservedword">if</span><span class="cpp1-space"> </span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">n </span><span class="cpp1-symbol">!=</span><span class="cpp1-space"> </span><span class="cpp1-number">0</span><span class="cpp1-symbol">){
+</span><span class="cpp1-space">			printHelper</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">n </span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-space"> left</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">			n</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">data</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">print</span><span class="cpp1-symbol">();
+</span><span class="cpp1-space">			printHelper</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">n </span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-space"> right</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">		</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">	</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">	
+	
+	</span><span class="cpp1-comment">//adds node to the tree uses add helper
+</span><span class="cpp1-space">	</span><span class="cpp1-reservedword">void</span><span class="cpp1-space"> BST</span><span class="cpp1-symbol">::</span><span class="cpp1-space"> add</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">Students </span><span class="cpp1-symbol">*</span><span class="cpp1-identifier">e</span><span class="cpp1-symbol">){
+</span><span class="cpp1-space">		TreeNode </span><span class="cpp1-symbol">*</span><span class="cpp1-identifier">d</span><span class="cpp1-symbol">=</span><span class="cpp1-reservedword">new</span><span class="cpp1-space"> TreeNode</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">e</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">		addHelper</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">d</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> root</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">		</span><span class="cpp1-symbol">++</span><span class="cpp1-identifier">size</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">	</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">	
+	</span><span class="cpp1-comment">//helpler function for add to recursively add node to the tree
+</span><span class="cpp1-space">	</span><span class="cpp1-reservedword">void</span><span class="cpp1-space"> BST</span><span class="cpp1-symbol">::</span><span class="cpp1-space"> addHelper</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">TreeNode </span><span class="cpp1-symbol">*</span><span class="cpp1-identifier">d</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> TreeNode</span><span class="cpp1-symbol">*&amp;</span><span class="cpp1-space"> p</span><span class="cpp1-symbol">){
+</span><span class="cpp1-space">		</span><span class="cpp1-reservedword">if</span><span class="cpp1-space"> </span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">p </span><span class="cpp1-symbol">==</span><span class="cpp1-space"> NULL</span><span class="cpp1-symbol">)
+</span><span class="cpp1-space">		</span><span class="cpp1-symbol">{
+</span><span class="cpp1-space">			p </span><span class="cpp1-symbol">=</span><span class="cpp1-space"> d</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">		</span><span class="cpp1-symbol">}</span><span class="cpp1-space"> 
+		</span><span class="cpp1-reservedword">else</span><span class="cpp1-space"> </span><span class="cpp1-reservedword">if</span><span class="cpp1-space"> </span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">d</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">data</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">getMtr</span><span class="cpp1-symbol">()</span><span class="cpp1-space"> </span><span class="cpp1-symbol">&gt;</span><span class="cpp1-space"> p</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">data</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">getMtr</span><span class="cpp1-symbol">())
+</span><span class="cpp1-space">		</span><span class="cpp1-symbol">{
+</span><span class="cpp1-space">			addHelper</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">d</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> p </span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-space"> right</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">		</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">		</span><span class="cpp1-reservedword">else
+</span><span class="cpp1-space">		</span><span class="cpp1-symbol">{
+</span><span class="cpp1-space">			addHelper</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">d</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> p </span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-space"> left</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">		</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">	</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">	
+	TreeNode</span><span class="cpp1-symbol">*</span><span class="cpp1-space"> BST</span><span class="cpp1-symbol">::</span><span class="cpp1-identifier">getMin</span><span class="cpp1-symbol">(){
+</span><span class="cpp1-space">		TreeNode </span><span class="cpp1-symbol">*</span><span class="cpp1-identifier">curr </span><span class="cpp1-symbol">=</span><span class="cpp1-space"> root</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">		</span><span class="cpp1-reservedword">while</span><span class="cpp1-space"> </span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">curr </span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-space"> left </span><span class="cpp1-symbol">!=</span><span class="cpp1-space"> </span><span class="cpp1-number">0</span><span class="cpp1-symbol">)
+</span><span class="cpp1-space">		</span><span class="cpp1-symbol">{
+</span><span class="cpp1-space">			curr </span><span class="cpp1-symbol">=</span><span class="cpp1-space"> curr </span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-space"> left</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">		</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">		</span><span class="cpp1-reservedword">return</span><span class="cpp1-space"> curr</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">	</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">	
+	TreeNode</span><span class="cpp1-symbol">*</span><span class="cpp1-space"> BST</span><span class="cpp1-symbol">::</span><span class="cpp1-identifier">getMax</span><span class="cpp1-symbol">(){
+</span><span class="cpp1-space">		TreeNode </span><span class="cpp1-symbol">*</span><span class="cpp1-identifier">curr </span><span class="cpp1-symbol">=</span><span class="cpp1-space"> root</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">		</span><span class="cpp1-reservedword">while</span><span class="cpp1-space"> </span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">curr </span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-space"> right </span><span class="cpp1-symbol">!=</span><span class="cpp1-space"> </span><span class="cpp1-number">0</span><span class="cpp1-symbol">)
+</span><span class="cpp1-space">		</span><span class="cpp1-symbol">{
+</span><span class="cpp1-space">			curr </span><span class="cpp1-symbol">=</span><span class="cpp1-space"> curr </span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-space"> right</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">		</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">		</span><span class="cpp1-reservedword">return</span><span class="cpp1-space"> curr</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">	</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">	
+	TreeNode</span><span class="cpp1-symbol">*</span><span class="cpp1-space"> BST</span><span class="cpp1-symbol">::</span><span class="cpp1-identifier">getTreeNode</span><span class="cpp1-symbol">(</span><span class="cpp1-reservedword">int</span><span class="cpp1-space"> m</span><span class="cpp1-symbol">){
+</span><span class="cpp1-space">		assert</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">m</span><span class="cpp1-symbol">&gt;</span><span class="cpp1-number">0</span><span class="cpp1-space"> </span><span class="cpp1-symbol">&amp;&amp;</span><span class="cpp1-space"> m</span><span class="cpp1-symbol">&lt;</span><span class="cpp1-identifier">size</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">		TreeNode </span><span class="cpp1-symbol">*</span><span class="cpp1-identifier">curr</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">root</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">		getHelper</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">curr</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">m</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">		</span><span class="cpp1-reservedword">return</span><span class="cpp1-space"> curr</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">	</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">	
+	</span><span class="cpp1-reservedword">void</span><span class="cpp1-space"> BST</span><span class="cpp1-symbol">::</span><span class="cpp1-space"> getHelper</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">TreeNode</span><span class="cpp1-symbol">*&amp;</span><span class="cpp1-space"> curr</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> </span><span class="cpp1-reservedword">int</span><span class="cpp1-space"> m</span><span class="cpp1-symbol">){
+</span><span class="cpp1-space">		</span><span class="cpp1-reservedword">if</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">m</span><span class="cpp1-symbol">!=</span><span class="cpp1-identifier">curr</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">data</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">getMtr</span><span class="cpp1-symbol">()){
+</span><span class="cpp1-space">			</span><span class="cpp1-reservedword">if</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">m</span><span class="cpp1-symbol">&lt;</span><span class="cpp1-identifier">curr</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">data</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">getMtr</span><span class="cpp1-symbol">()){
+</span><span class="cpp1-space">				curr</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">curr</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">left</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">				getHelper</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">curr</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">m</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">			</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">			</span><span class="cpp1-reservedword">else</span><span class="cpp1-symbol">{
+</span><span class="cpp1-space">				curr</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">curr</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">right</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">				getHelper</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">curr</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">m</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">			</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">		</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">	</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">	
+	</span><span class="cpp1-reservedword">void</span><span class="cpp1-space"> BST</span><span class="cpp1-symbol">::</span><span class="cpp1-identifier">SearchByMtr</span><span class="cpp1-symbol">(</span><span class="cpp1-reservedword">int</span><span class="cpp1-space"> m</span><span class="cpp1-symbol">){
+</span><span class="cpp1-space">		getTreeNode</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">m</span><span class="cpp1-symbol">)-&gt;</span><span class="cpp1-identifier">data</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">print</span><span class="cpp1-symbol">();
+</span><span class="cpp1-space">	</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">	
+	</span><span class="cpp1-reservedword">void</span><span class="cpp1-space"> BST</span><span class="cpp1-symbol">::</span><span class="cpp1-identifier">deleteNode</span><span class="cpp1-symbol">(</span><span class="cpp1-reservedword">int</span><span class="cpp1-space"> mtr</span><span class="cpp1-symbol">){
+</span><span class="cpp1-space">	
+	</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">	</span><span class="cpp1-preprocessor">#endif
+</span><span class="cpp1-space">	
+	</span><span class="cpp1-preprocessor">#include&quot;BST.hpp&quot;
+</span><span class="cpp1-space">	</span><span class="cpp1-reservedword">int</span><span class="cpp1-space"> main</span><span class="cpp1-symbol">(){
+</span><span class="cpp1-space">		</span><span class="cpp1-reservedword">float</span><span class="cpp1-space"> t</span><span class="cpp1-symbol">[</span><span class="cpp1-number">8</span><span class="cpp1-symbol">]={</span><span class="cpp1-number">18</span><span class="cpp1-symbol">,</span><span class="cpp1-number">7</span><span class="cpp1-symbol">,</span><span class="cpp1-number">19</span><span class="cpp1-symbol">,</span><span class="cpp1-number">17</span><span class="cpp1-symbol">,</span><span class="cpp1-number">15</span><span class="cpp1-symbol">,</span><span class="cpp1-number">16</span><span class="cpp1-symbol">,</span><span class="cpp1-number">0</span><span class="cpp1-symbol">,</span><span class="cpp1-number">20</span><span class="cpp1-symbol">};
+</span><span class="cpp1-space">		</span><span class="cpp1-reservedword">float</span><span class="cpp1-space"> t2</span><span class="cpp1-symbol">[</span><span class="cpp1-number">8</span><span class="cpp1-symbol">]={</span><span class="cpp1-number">11</span><span class="cpp1-symbol">,</span><span class="cpp1-number">15</span><span class="cpp1-symbol">,</span><span class="cpp1-number">11</span><span class="cpp1-symbol">,</span><span class="cpp1-number">0</span><span class="cpp1-symbol">,</span><span class="cpp1-number">16</span><span class="cpp1-symbol">,</span><span class="cpp1-number">4</span><span class="cpp1-symbol">,</span><span class="cpp1-float">2.5</span><span class="cpp1-symbol">,</span><span class="cpp1-number">10</span><span class="cpp1-symbol">};
+</span><span class="cpp1-space">		</span><span class="cpp1-reservedword">float</span><span class="cpp1-space"> t3</span><span class="cpp1-symbol">[</span><span class="cpp1-number">8</span><span class="cpp1-symbol">]={</span><span class="cpp1-number">5</span><span class="cpp1-symbol">,</span><span class="cpp1-number">7</span><span class="cpp1-symbol">,</span><span class="cpp1-number">11</span><span class="cpp1-symbol">,</span><span class="cpp1-number">5</span><span class="cpp1-symbol">,</span><span class="cpp1-number">16</span><span class="cpp1-symbol">,</span><span class="cpp1-number">16</span><span class="cpp1-symbol">,</span><span class="cpp1-float">2.5</span><span class="cpp1-symbol">,</span><span class="cpp1-number">5</span><span class="cpp1-symbol">};
+</span><span class="cpp1-space">		</span><span class="cpp1-reservedword">float</span><span class="cpp1-space"> t4</span><span class="cpp1-symbol">[</span><span class="cpp1-number">8</span><span class="cpp1-symbol">]={</span><span class="cpp1-number">11</span><span class="cpp1-symbol">,</span><span class="cpp1-number">7</span><span class="cpp1-symbol">,</span><span class="cpp1-number">11</span><span class="cpp1-symbol">,</span><span class="cpp1-number">11</span><span class="cpp1-symbol">,</span><span class="cpp1-number">16</span><span class="cpp1-symbol">,</span><span class="cpp1-number">1</span><span class="cpp1-symbol">,</span><span class="cpp1-float">2.5</span><span class="cpp1-symbol">,</span><span class="cpp1-number">10</span><span class="cpp1-symbol">};
+</span><span class="cpp1-space">		
+		Students </span><span class="cpp1-symbol">*</span><span class="cpp1-identifier">e</span><span class="cpp1-symbol">=</span><span class="cpp1-reservedword">new</span><span class="cpp1-space"> Students</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;Achraf&quot;</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">t</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">		Students </span><span class="cpp1-symbol">*</span><span class="cpp1-identifier">e2</span><span class="cpp1-symbol">=</span><span class="cpp1-reservedword">new</span><span class="cpp1-space"> Students</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;Anas&quot;</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">t2</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">		Students </span><span class="cpp1-symbol">*</span><span class="cpp1-identifier">e3</span><span class="cpp1-symbol">=</span><span class="cpp1-reservedword">new</span><span class="cpp1-space"> Students</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;Ali&quot;</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">t</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">		Students </span><span class="cpp1-symbol">*</span><span class="cpp1-identifier">e4</span><span class="cpp1-symbol">=</span><span class="cpp1-reservedword">new</span><span class="cpp1-space"> Students</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;Rachid&quot;</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">t</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">		
+		BST </span><span class="cpp1-symbol">*</span><span class="cpp1-identifier">b</span><span class="cpp1-symbol">=</span><span class="cpp1-reservedword">new</span><span class="cpp1-space"> BST</span><span class="cpp1-symbol">();
+</span><span class="cpp1-space">		b</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">add</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">e</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">		b</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">add</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">e2</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">		b</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">add</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">e3</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">		b</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">add</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">e4</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">		
+	</span><span class="cpp1-comment">//	b-&gt;print();
+</span><span class="cpp1-space">	</span><span class="cpp1-comment">//	b-&gt;getMax()-&gt;data-&gt;print();	
+</span><span class="cpp1-space">	</span><span class="cpp1-comment">//	b-&gt;getMin()-&gt;data-&gt;print();	
+</span><span class="cpp1-space">	</span><span class="cpp1-comment">//	b-&gt;emptyTree();
+</span><span class="cpp1-space">		b</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">SearchByMtr</span><span class="cpp1-symbol">(</span><span class="cpp1-number">2</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">		</span><span class="cpp1-reservedword">return</span><span class="cpp1-space"> </span><span class="cpp1-number">0</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">	</span><span class="cpp1-symbol">}
+</span></span>
+</code></pre>
+</body>
+</html>
