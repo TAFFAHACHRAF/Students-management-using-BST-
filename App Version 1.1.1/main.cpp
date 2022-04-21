@@ -20,6 +20,7 @@ int main(){
 	b->getMax()->data->print();	
 	b->getMin()->data->print();	
 	b->emptyTree();
-//	b->getTreeNode(0)->data->print();
+	b->SearchByMtr(2);
 	return 0;
 }
+
