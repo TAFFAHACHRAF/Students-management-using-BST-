@@ -73,7 +73,7 @@
 			}
 			void print();
 			void add(Students *e);
-			bool deleteNode(BST d);
+			void deleteNode(int mtr);
 			TreeNode* getMin();
 			TreeNode* getMax();
 			TreeNode* getTreeNode(int m);
@@ -250,18 +250,30 @@
 	}
 	
 	TreeNode* BST::getTreeNode(int m){
-		TreeNode *curr=new TreeNode();
-		curr=root;
+		assert(m>0 && m<size);
+		TreeNode *curr=root;
 		getHelper(curr,m);
 		return curr;
 	}
 	
 	void BST:: getHelper(TreeNode*& curr, int m){
-		if(m<curr->data->getMtr()){
-			getHelper(curr->left,m);
+		if(m!=curr->data->getMtr()){
+			if(m<curr->data->getMtr()){
+				curr=curr->left;
+				getHelper(curr,m);
+			}
+			else{
+				curr=curr->right;
+				getHelper(curr,m);
+			}
 		}
-		else if(m>curr->data->getMtr()){
-			getHelper(curr->right,m);
-		}
+	}
+	
+	void BST::SearchByMtr(int m){
+		getTreeNode(m)->data->print();
+	}
+	
+	void BST::deleteNode(int mtr){
+	
 	}
 	#endif
